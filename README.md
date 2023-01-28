@@ -5,5 +5,5 @@
 * VUE.js
 * roboflow.js
 
-## Task
+## Objective
 By this site you can play real cards with other people from different places in the world.
