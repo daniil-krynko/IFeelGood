@@ -3,7 +3,6 @@
 ## Stack
 * NodeJS
 * VUE.js
-* roboflow.js
 
 ## Objective
-By this site you can play real cards with other people from different places in the world.
+Get help from psychotherapists or exact app will help user to beat mental ill.
