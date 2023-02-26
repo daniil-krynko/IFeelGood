@@ -10,26 +10,28 @@ export class SessionsController {
 
     @Get()
     async getSessions(): Promise<Session[]> {
-        return this.sessionsService.findAllSessions();
+        return this.sessionsService.getAllSessions();
     }
 
     @Get(':_id')
     async getSessionById(@Param('_id') id: string) {
-        return this.sessionsService.findSessionById(id);
+        return this.sessionsService.getSessionById(id);
     }
 
     @Post()
     async createSession(@Body() createSessionDto: CreateSessionDto) {
-        await this.sessionsService.newSession(createSessionDto);
+        await this.sessionsService.createSession(createSessionDto);
+        console.log("Krynko");
+
     }
 
     @Put(':_id')
     async updateSession(@Param('_id') id: string, @Body() updateSessionDto: UpdateSessionDto) {
-        return await this.sessionsService.editSession(id, updateSessionDto);
+        return await this.sessionsService.updateSession(id, updateSessionDto);
     }
 
     @Delete(':_id')
     async deleteSession(@Param('_id') id: string) {
-        return this.sessionsService.removeSession(id);
+        return this.sessionsService.deleteSession(id);
     }
 }

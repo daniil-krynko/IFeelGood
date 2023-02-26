@@ -9,24 +9,24 @@ import { UpdateSessionDto } from "./dto/update-session.dto";
 export class SessionsService {
     constructor(@InjectModel('Session') private sessionModel: Model<SessionDocument>) {}
 
-    async findAllSessions(): Promise<Session[]> {
+    async getAllSessions(): Promise<Session[]> {
         return this.sessionModel.find().exec();
     }
 
-    async findSessionById(id: string): Promise<Session> {
+    async getSessionById(id: string): Promise<Session> {
         return this.sessionModel.findById(id).exec();
     }
 
-    async newSession(createPatientDto: CreateSessionDto): Promise<Session> {
-        return await this.sessionModel.create(createPatientDto);
+    async createSession(createSessionDto: CreateSessionDto): Promise<Session> {
+        console.log("Krynko");
+        return await this.sessionModel.create(createSessionDto);
     }
 
-    async editSession(id: string, updateSessionDto: CreateSessionDto): Promise<Session> {
+    async updateSession(id: string, updateSessionDto: CreateSessionDto): Promise<Session> {
         return await this.sessionModel.findByIdAndUpdate(id, updateSessionDto).exec();
     }
 
-    async removeSession(id: string) {
+    async deleteSession(id: string) {
         return await this.sessionModel.findByIdAndDelete({ _id: id }).exec();
     }
-
 }

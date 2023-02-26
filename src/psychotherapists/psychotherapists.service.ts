@@ -8,11 +8,11 @@ import { CreatePsychotherapistDto } from "./dto/create-psychotherapist.dto";
 export class PsychotherapistsService {
     constructor(@InjectModel('Psychotherapist') private psychotherapistModel: Model<PsychotherapistDocument>) {}
 
-    async findAllPsychotherapists(): Promise<Psychotherapist[]> {
+    async getAllPsychotherapists(): Promise<Psychotherapist[]> {
         return this.psychotherapistModel.find().exec();
     }
 
-    async findPsychotherapistById(id: string): Promise<Psychotherapist> {
+    async getPsychotherapistById(id: string): Promise<Psychotherapist> {
         return this.psychotherapistModel.findById(id).exec();
     }
 
@@ -20,7 +20,7 @@ export class PsychotherapistsService {
         return await this.psychotherapistModel.create(createPatientDto);
     }
 
-    async editPsychotherapist(id: string, updatePsychotherapistDto: CreatePsychotherapistDto): Promise<Psychotherapist> {
+    async updatePsychotherapist(id: string, updatePsychotherapistDto: CreatePsychotherapistDto): Promise<Psychotherapist> {
         return await this.psychotherapistModel.findByIdAndUpdate(id, updatePsychotherapistDto).exec();
     }
 

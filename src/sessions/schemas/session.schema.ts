@@ -11,7 +11,7 @@ export class Session {
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: "Patient" })
     patient: Patient;
 
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: "Psychotherapist" })
+    @Prop({ required: true, type: mongoose.Schema.Types.ObjectId, ref: "Psychotherapist" })
     psychotherapist: Psychotherapist;
 
     @Prop({ required: true })

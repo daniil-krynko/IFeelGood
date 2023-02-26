@@ -17,11 +17,17 @@ export class Patient {
     @Prop({ required: true })
     bankcard: string;
 
+    @Prop({ required: true })
+    password: string;
+
     @Prop()
     birthdate: Date;
 
     @Prop()
     email: string;
+
+    @Prop()
+    refreshToken: string;
 }
 
 export const PatientSchema = SchemaFactory.createForClass(Patient);

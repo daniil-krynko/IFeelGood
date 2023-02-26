@@ -9,12 +9,12 @@ export class PsychotherapistsController {
     constructor(private psychotherapistsService: PsychotherapistsService) {}
     @Get()
     async getPsychotherapists(): Promise<Psychotherapist[]> {
-        return this.psychotherapistsService.findAllPsychotherapists();
+        return this.psychotherapistsService.getAllPsychotherapists();
     }
 
     @Get(':_id')
     async getPsychotherapistById(@Param('_id') id: string) {
-        return this.psychotherapistsService.findPsychotherapistById(id);
+        return this.psychotherapistsService.getPsychotherapistById(id);
     }
 
     @Post()
@@ -24,12 +24,11 @@ export class PsychotherapistsController {
 
     @Put(':_id')
     async updatePsychotherapist(@Param('_id') id: string, @Body() updatePsychotherapistDto: UpdatePsychotherapistDto) {
-        return await this.psychotherapistsService.editPsychotherapist(id, updatePsychotherapistDto);
+        return await this.psychotherapistsService.updatePsychotherapist(id, updatePsychotherapistDto);
     }
 
     @Delete(':_id')
     async deletePsychotherapist(@Param('_id') id: string) {
         return this.psychotherapistsService.removePsychotherapist(id);
     }
-
 }

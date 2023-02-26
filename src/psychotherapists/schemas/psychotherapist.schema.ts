@@ -20,6 +20,9 @@ export class Psychotherapist {
     @Prop({ required: true })
     certificate: string;
 
+    @Prop({ default: true  })
+    public: boolean;
+
     @Prop()
     birthdate: Date;
 
